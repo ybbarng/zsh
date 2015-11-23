@@ -41,7 +41,7 @@ ZSH_THEME="powerline"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git, gradle)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -65,3 +65,9 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 # set for irssi in screen-256color
 alias irssi='TERM=screen-256color irssi'
+
+alias sl=ls
+
+alias logcat='adb logcat -v threadtime | tee temp.logcat'
+source ~/.profile
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
