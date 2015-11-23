@@ -99,6 +99,7 @@ source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
 
 alias tmuxat='tmux attach -t'
+alias tmuxatd='tmux attach-session -d -t'
 
 # Virtualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
