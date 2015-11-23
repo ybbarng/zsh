@@ -83,6 +83,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Oh-my-zsh automatically upgrade itself without prompting
+DISABLE_UPDATE_PROMPT=true
+
 #export TERM='screen-256color'
 export TERM='xterm-256color'
 
