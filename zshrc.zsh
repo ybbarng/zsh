@@ -96,7 +96,7 @@ setopt append_history no_inc_append_history no_share_history
 
 source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root)
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
 
 alias tmuxat='tmux attach -t'
 
