@@ -94,8 +94,10 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
    # POWERLINE_GIT_INFO_LEFT=""
    # POWERLINE_GIT_INFO_RIGHT=""
 # else
+    # 임시로 사용하던 기존 삼각형 문자 : ⮀ (\u2b80), ⮂' (\u2b82)
+    # 새 삼각형 문자 :  (\ue0b0)
     if [ "$POWERLINE_SHOW_GIT_ON_RIGHT" = "" ]; then
-	    POWERLINE_GIT_INFO_LEFT=" %F{27}%K{255}"$'⮀'"%F{255}%F{black}%K{255}"$'$(git_prompt_info)'
+	    POWERLINE_GIT_INFO_LEFT=" %F{27}%K{255}"$''"%F{255}%F{black}%K{255}"$'$(git_prompt_info)'
         if [ "$POWERLINE_HIDE_GIT_PROMPT_STATUS" = "" ]; then
             POWERLINE_GIT_INFO_LEFT+=$'$(git_prompt_status)%F{255}'
         else
@@ -104,7 +106,7 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
         POWERLINE_GIT_INFO_RIGHT=""
     else
         POWERLINE_GIT_INFO_LEFT=""
-        POWERLINE_GIT_INFO_RIGHT="%F{255}"$'⮂'"%F{black}%K{255}"$'$(git_prompt_info)'" %K{255}"
+        POWERLINE_GIT_INFO_RIGHT="%F{255}"$''"%F{black}%K{255}"$'$(git_prompt_info)'" %K{255}"
     fi
 # fi
 
@@ -123,7 +125,7 @@ if [ "$POWERLINE_DETECT_SSH" != "" ]; then
     POWERLINE_SEC1_TXT=%F{255}
   fi
 fi
-PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{27}"$'⮀'"%k%f%F{255}%K{27} "$POWERLINE_CURRENT_PATH"%F{27}"$POWERLINE_GIT_INFO_LEFT" %k"$'⮀'"%f "
+PROMPT="$POWERLINE_SEC1_BG$POWERLINE_SEC1_TXT $POWERLINE_USER_NAME %k%f$POWERLINE_SEC1_FG%K{27}"$''"%k%f%F{255}%K{27} "$POWERLINE_CURRENT_PATH"%F{27}"$POWERLINE_GIT_INFO_LEFT" %k"$''"%f "
 
 if [ "$POWERLINE_NO_BLANK_LINE" = "" ]; then
     PROMPT="
