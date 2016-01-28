@@ -96,8 +96,8 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
    # POWERLINE_GIT_INFO_LEFT=""
    # POWERLINE_GIT_INFO_RIGHT=""
 # else
-    # 임시로 사용하던 기존 삼각형 문자 : ⮀ (\u2b80), ⮂' (\u2b82)
-    # 새 삼각형 문자 :  (\ue0b0)
+    # 임시로 사용하던 기존 삼각형 문자 : > ⮀ (\u2b80), < ⮂' (\u2b82)
+    # 새 삼각형 문자 : >   (\ue0b0), <  (\ue0b2)
     if [ "$POWERLINE_SHOW_GIT_ON_RIGHT" = "" ]; then
 	    POWERLINE_GIT_INFO_LEFT=" %F{27}%K{255}"$''"%F{255}%F{black}%K{255}"$'$(git_prompt_info)'
         if [ "$POWERLINE_HIDE_GIT_PROMPT_STATUS" = "" ]; then
@@ -108,7 +108,7 @@ ZSH_THEME_GIT_PROMPT_DIVERGED=" ⬍"
         POWERLINE_GIT_INFO_RIGHT=""
     else
         POWERLINE_GIT_INFO_LEFT=""
-        POWERLINE_GIT_INFO_RIGHT="%F{255}"$''"%F{black}%K{255}"$'$(git_prompt_info)'" %K{255}"
+        POWERLINE_GIT_INFO_RIGHT="%F{255}"$''"%F{black}%K{255}"$'$(git_prompt_info)'" %K{255}"
     fi
 # fi
 
@@ -136,10 +136,10 @@ fi
 
 if [ "$POWERLINE_DISABLE_RPROMPT" = "" ]; then
     if [ "$POWERLINE_RIGHT_A" = "" ]; then
-        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{227}"$'⮂'"%k%F{black}%K{227} $POWERLINE_RIGHT_B %f%k"
+        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{227}"$''"%k%F{black}%K{227} $POWERLINE_RIGHT_B %f%k"
     elif [ "$POWERLINE_RIGHT_B" = "" ]; then
-        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{227}"$'⮂'"%k%F{240}%K{227} $POWERLINE_RIGHT_A %f%k"
+        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{227}"$''"%k%F{240}%K{227} $POWERLINE_RIGHT_A %f%k"
     else
-        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{227}"$'⮂'"%k%F{black}%K{227} $POWERLINE_RIGHT_B %f%F{240}"$'⮂'"%f%k%K{240}%F{255} $POWERLINE_RIGHT_A %f%k"
+        RPROMPT="$POWERLINE_GIT_INFO_RIGHT%F{227}"$''"%k%F{black}%K{227} $POWERLINE_RIGHT_B %f%F{240}"$'⮂'"%f%k%K{240}%F{255} $POWERLINE_RIGHT_A %f%k"
     fi
 fi
