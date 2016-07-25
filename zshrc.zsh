@@ -91,6 +91,7 @@ export TERM='xterm-256color'
 
 alias benv27='source ~/.benv27/bin/activate'
 alias benv3='source ~/.benv3/bin/activate'
+alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3.5'
 
 setopt append_history no_inc_append_history no_share_history
 
