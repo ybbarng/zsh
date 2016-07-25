@@ -106,7 +106,7 @@ alias tmuxatd='tmux attach-session -d -t'
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 # set for irssi in screen-256color
-alias irssi='TERM=screen-256color irssi'
+alias irssi='TERM=screen-256color /usr/bin/irssi'
 
 alias sl=ls
 
