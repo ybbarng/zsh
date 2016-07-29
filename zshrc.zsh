@@ -116,3 +116,11 @@ alias upgrade_all='sudo apt-get update && sudo apt-get upgrade'
 
 source ~/.profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# color settings for tldr
+export TLDR_COLOR_BLANK="white"
+export TLDR_COLOR_NAME="yellow bold"
+export TLDR_COLOR_DESCRIPTION="white"
+export TLDR_COLOR_EXAMPLE="cyan"
+export TLDR_COLOR_COMMAND="green"
+export TLDR_COLOR_PARAMETER="white"
