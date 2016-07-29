@@ -111,5 +111,8 @@ alias irssi='TERM=screen-256color /usr/bin/irssi'
 alias sl=ls
 
 alias logcat='adb logcat -v threadtime | tee temp.logcat'
+
+alias upgrade_all='sudo apt-get update && sudo apt-get upgrade'
+
 source ~/.profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
