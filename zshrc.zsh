@@ -114,7 +114,7 @@ alias logcat='adb logcat -v threadtime | tee temp.logcat'
 
 alias upgrade_all='sudo apt-get update && sudo apt-get upgrade'
 
-source ~/.profile
+[ -f ~/.profile ] && source ~/.profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # color settings for tldr
