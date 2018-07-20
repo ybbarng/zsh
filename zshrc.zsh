@@ -2,7 +2,21 @@
 
 # zplug
 autoload -U is-at-least
-export ZPLUG_HOME=/usr/local/opt/zplug
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    export ZPLUG_HOME=/usr/local/opt/zplug
+  ;;
+  Linux)
+    # commands for Linux go here
+    export ZPLUG_HOME=~/.zplug
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+
 if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
     source $ZPLUG_HOME/init.zsh
 
