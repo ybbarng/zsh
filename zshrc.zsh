@@ -44,8 +44,19 @@ export LSCOLORS="Gxfxcxdxbxegedxbagxcad"
 export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=30;46:tw=0;42:ow=30;43"
 export TIME_STYLE="+%y%m%d"
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# alias ls="ls --color=tty"
-alias ls="ls -G"
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    alias ls="ls -G"
+  ;;
+  Linux)
+    # commands for Linux go here
+    alias ls="ls --color=tty"
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
 
 #
 # zsh-substring-completion
