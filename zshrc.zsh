@@ -1,90 +1,63 @@
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
+# https://github.com/simnalamburt/.dotfiles/blob/master/.zshrc 을 많이 참고함
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-ZSH_THEME="powerline"
+# zplug
+autoload -U is-at-least
+export ZPLUG_HOME=/usr/local/opt/zplug
+if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
+    source $ZPLUG_HOME/init.zsh
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+    zplug "zsh-users/zsh-autosuggestions"
+    zplug "zsh-users/zsh-completions"
+    ZSH_AUTOSUGGEST_USE_ASYNC=true
+    zplug "zsh-users/zsh-syntax-highlighting"
+    zplug "zsh-users/zsh-history-substring-search"
+    bindkey '^[[A' history-substring-search-up
+    bindkey '^[[B' history-substring-search-down
 
-# Uncomment the following line to use hyphen-insensitive completion. Case
-# sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+    zplug "simnalamburt/shellder", as:theme
 
-# Uncomment the following line to disable bi-weekly auto-update checks.
-# DISABLE_AUTO_UPDATE="true"
+    zplug load
+else
+    PS1='%n@%m:%~%(!.#.$) '
+fi
 
-# Uncomment the following line to change how often to auto-update (in days).
-# export UPDATE_ZSH_DAYS=13
+# shellder prompt without machine name
+export DEFAULT_USER="$USER"
 
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
+# ls colors
+autoload -U colors && colors
+export LSCOLORS="Gxfxcxdxbxegedxbagxcad"
+export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=0;41:sg=30;46:tw=0;42:ow=30;43"
+export TIME_STYLE="+%y%m%d"
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# alias ls="ls --color=tty"
+alias ls="ls -G"
 
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment the following line to enable command auto-correction.
-# ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# HIST_STAMPS="mm/dd/yyyy"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git, gradle)
-
-# User configuration
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-# export MANPATH="/usr/local/man:$MANPATH"
-
-source $ZSH/oh-my-zsh.sh
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# zsh-substring-completion
+#
+setopt complete_in_word
+setopt always_to_end
+WORDCHARS=''
+zmodload -i zsh/complist
 
-# Oh-my-zsh automatically upgrade itself without prompting
-DISABLE_UPDATE_PROMPT=true
+# Substring completion
+zstyle ':completion:*' matcher-list 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+
+
+# disable ctrl + s which freeze the terminal
+stty stop undef
+
+# for safety
+alias mv='mv -i'
+alias cp='cp -i'
+
+# zsh options
+setopt auto_cd histignorealldups sharehistory
+zstyle ':completion:*' menu select
+HISTSIZE=10000
+SAVEHIST=10000
+HISTFILE=~/.zsh_history
 
 #export TERM='screen-256color'
 export TERM='xterm-256color'
@@ -92,10 +65,6 @@ export TERM='xterm-256color'
 alias benv27='source ~/.benv27/bin/activate'
 alias benv3='source ~/.benv3/bin/activate'
 alias mkvirtualenv3='mkvirtualenv --python=/usr/bin/python3.5'
-
-setopt append_history no_inc_append_history no_share_history
-
-source ~/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
 
@@ -109,6 +78,7 @@ alias tmuxatd='tmux attach-session -d -t'
 alias irssi='TERM=screen-256color /usr/bin/irssi'
 
 alias sl=ls
+
 
 alias logcat='adb logcat -v threadtime | tee temp.logcat'
 
@@ -124,3 +94,10 @@ export TLDR_COLOR_DESCRIPTION="white"
 export TLDR_COLOR_EXAMPLE="cyan"
 export TLDR_COLOR_COMMAND="green"
 export TLDR_COLOR_PARAMETER="white"
+
+alias git=hub
+
+# Local configs
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
