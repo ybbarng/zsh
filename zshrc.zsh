@@ -125,6 +125,11 @@ export TLDR_COLOR_PARAMETER="white"
 #    alias git=hub
 #fi
 
+# gradle plugin from oh-my-zsh
+if [[ -f ~/.zsh/gradle.plugin.zsh ]]; then
+  source ~/.zsh/gradle.plugin.zsh
+fi
+
 # Local configs
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
