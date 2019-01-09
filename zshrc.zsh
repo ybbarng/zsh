@@ -120,10 +120,10 @@ export TLDR_COLOR_EXAMPLE="cyan"
 export TLDR_COLOR_COMMAND="green"
 export TLDR_COLOR_PARAMETER="white"
 
-# if hub is exists
-if type "hub" > /dev/null; then
-    alias git=hub
-fi
+## if hub is exists
+#if type "hub" > /dev/null; then
+#    alias git=hub
+#fi
 
 # Local configs
 if [[ -f ~/.zshrc.local ]]; then
