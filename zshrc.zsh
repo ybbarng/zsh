@@ -114,6 +114,9 @@ export TLDR_COLOR_EXAMPLE="cyan"
 export TLDR_COLOR_COMMAND="green"
 export TLDR_COLOR_PARAMETER="white"
 
+# interpret color characters
+export LESS='-R'
+
 ## if hub is exists
 #if type "hub" > /dev/null; then
 #    alias git=hub
