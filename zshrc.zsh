@@ -51,6 +51,11 @@ case `uname` in
   ;;
 esac
 
+# prefer https://github.com/Peltoche/lsd
+if command -v lsd >/dev/null 2>&1; then
+  alias ls="lsd"
+fi
+
 #
 # zsh-substring-completion
 #
