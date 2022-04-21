@@ -96,6 +96,7 @@ alias tmuxat='tmux attach -t'
 alias tmuxatd='tmux attach-session -d -t'
 
 # Virtualenvwrapper
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 [ -f /usr/local/bin/virtualenvwrapper.sh ] && source /usr/local/bin/virtualenvwrapper.sh
 
 # set for irssi in screen-256color
