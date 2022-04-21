@@ -125,6 +125,18 @@ export LESS='-R'
 # br: https://dystroy.org/broot/
 source /Users/ybbarng/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
+# Prevent use git checkout
+function git {
+  if [[ "$1" == "checkout" ]]; then
+    RED='\033[0;31m'
+    NC='\033[0m'
+    echo -e "${RED}아재야 switch/restore를 써${NC}"
+    return 1
+  else
+    command git "$@"
+  fi
+}
+
 ## Use Android Studio bundled JDK to run gradlew in terminal
 if [[ -d "/Applications/Android Studio.app/Contents/jre/Contents/Home/bin/" ]]; then
   export PATH=$PATH:"/Applications/Android Studio.app/Contents/jre/Contents/Home/bin/"
