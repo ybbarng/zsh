@@ -106,9 +106,6 @@ alias logcat='adb logcat -v threadtime | tee temp.logcat'
 
 alias upgrade_all='sudo apt-get update && sudo apt-get upgrade'
 
-[ -f ~/.profile ] && source ~/.profile
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # color settings for tldr
 export TLDR_COLOR_BLANK="white"
 export TLDR_COLOR_NAME="yellow bold"
@@ -128,6 +125,9 @@ if [[ -f ~/.zsh/gradle.plugin.zsh ]]; then
 fi
 
 # Local configs
+[ -f ~/.profile ] && source ~/.profile
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
