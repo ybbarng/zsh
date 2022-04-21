@@ -122,9 +122,6 @@ export LESS='-R'
 #    alias git=hub
 #fi
 
-# gradle plugin from oh-my-zsh
-if [[ -f ~/.zsh/gradle.plugin.zsh ]]; then
-  source ~/.zsh/gradle.plugin.zsh
 fi
 
 # Local configs
