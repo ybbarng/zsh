@@ -77,6 +77,7 @@ alias cp='cp -i'
 
 # zsh options
 setopt auto_cd histignorealldups sharehistory
+setopt HIST_IGNORE_SPACE
 zstyle ':completion:*' menu select
 HISTSIZE=10000
 SAVEHIST=10000
