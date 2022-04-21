@@ -122,6 +122,9 @@ export LESS='-R'
 #    alias git=hub
 #fi
 
+# br: https://dystroy.org/broot/
+source /Users/ybbarng/Library/Preferences/org.dystroy.broot/launcher/bash/br
+
 ## Use Android Studio bundled JDK to run gradlew in terminal
 if [[ -d "/Applications/Android Studio.app/Contents/jre/Contents/Home/bin/" ]]; then
   export PATH=$PATH:"/Applications/Android Studio.app/Contents/jre/Contents/Home/bin/"
