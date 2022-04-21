@@ -1,6 +1,4 @@
-# https://github.com/simnalamburt/.dotfiles/blob/master/.zshrc 을 많이 참고함
-
-# zplug
+# zinit
 autoload -U is-at-least
 
 case `uname` in
@@ -28,15 +26,10 @@ if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 
-    zplug "simnalamburt/shellder", as:theme
-
     zplug load
 else
     PS1='%n@%m:%~%(!.#.$) '
 fi
-
-# shellder prompt without machine name
-export DEFAULT_USER="$USER"
 
 # ls colors
 autoload -U colors && colors
@@ -134,3 +127,6 @@ fi
 if [[ -f ~/.zshrc.local ]]; then
   source ~/.zshrc.local
 fi
+
+## Use starship: https://starship.rs/
+eval "$(starship init zsh)"
