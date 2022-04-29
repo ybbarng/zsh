@@ -20,8 +20,8 @@ if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
 
     zplug "zsh-users/zsh-autosuggestions"
     zplug "zsh-users/zsh-completions"
-    zplug "zsh-users/zsh-syntax-highlighting"
     zplug "zsh-users/zsh-history-substring-search"
+    zplug "zsh-users/zsh-syntax-highlighting"
     zplug load
 
     bindkey '^[[A' history-substring-search-up
