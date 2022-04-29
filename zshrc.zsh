@@ -20,13 +20,16 @@ if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
 
     zplug "zsh-users/zsh-autosuggestions"
     zplug "zsh-users/zsh-completions"
-    ZSH_AUTOSUGGEST_USE_ASYNC=true
     zplug "zsh-users/zsh-syntax-highlighting"
     zplug "zsh-users/zsh-history-substring-search"
+    zplug load
+
     bindkey '^[[A' history-substring-search-up
     bindkey '^[[B' history-substring-search-down
 
-    zplug load
+    ZSH_AUTOSUGGEST_USE_ASYNC=true
+    ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
+
 else
     PS1='%n@%m:%~%(!.#.$) '
 fi
