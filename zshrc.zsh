@@ -1,3 +1,4 @@
+zsh_start=`perl -MTime::HiRes=time -e 'printf "%.9f\n", time'`
 # zinit
 autoload -U is-at-least
 
@@ -159,3 +160,6 @@ fi
 
 ## Use starship: https://starship.rs/
 eval "$(starship init zsh)"
+zsh_end=`perl -MTime::HiRes=time -e 'printf "%.9f\n", time'`
+zsh_runtime=`printf "%.3f\n" $((zsh_end-zsh_start))`
+echo 'Loading .zshrc takes ' $zsh_runtime 'ms'
