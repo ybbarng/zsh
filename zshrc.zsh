@@ -127,7 +127,7 @@ export LESS='-R'
 #fi
 
 # br: https://dystroy.org/broot/
-source /Users/ybbarng/Library/Preferences/org.dystroy.broot/launcher/bash/br
+[ -f /Users/ybbarng/Library/Preferences/org.dystroy.broot/launcher/bash/br ] && source /Users/ybbarng/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # Prevent use git checkout
 function git {
