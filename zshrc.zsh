@@ -141,15 +141,6 @@ function git {
   fi
 }
 
-## Use Android Studio bundled JDK to run gradlew in terminal
-if [[ -d "/Applications/Android Studio.app/Contents/jre/Contents/Home/bin/" ]]; then
-  export PATH=$PATH:"/Applications/Android Studio.app/Contents/jre/Contents/Home/bin/"
-fi
-
-if [[ -d "/Applications/Android Studio.app/Contents/jre/Contents/Home/" ]]; then
-  export JAVA_HOME="/Applications/Android Studio.app/Contents/jre/Contents/Home/"
-fi
-
 # Local configs
 [ -f ~/.profile ] && source ~/.profile
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
