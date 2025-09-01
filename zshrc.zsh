@@ -16,6 +16,15 @@ case `uname` in
   ;;
 esac
 
+# --- zsh-vi-mode 초기화 직후 zsh-history-substring-search가 동작하게 하기 위한 훅 ---
+zvm_after_init() {
+  # vi insert 키맵에 화살표 => history substring search
+  bindkey -M viins '^[[A' history-substring-search-up
+  bindkey -M viins '^[OA' history-substring-search-up
+  bindkey -M viins '^[[B' history-substring-search-down
+  bindkey -M viins '^[OB' history-substring-search-down
+}
+
 if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
     source $ZPLUG_HOME/init.zsh
 
@@ -23,10 +32,8 @@ if is-at-least 4.3.9 && [[ -f $ZPLUG_HOME/init.zsh ]]; then
     zplug "zsh-users/zsh-completions"
     zplug "zsh-users/zsh-history-substring-search"
     zplug "zsh-users/zsh-syntax-highlighting"
+    zplug "jeffreytse/zsh-vi-mode"
     zplug load
-
-    bindkey '^[[A' history-substring-search-up
-    bindkey '^[[B' history-substring-search-down
 
     ZSH_AUTOSUGGEST_USE_ASYNC=true
     ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern root)
